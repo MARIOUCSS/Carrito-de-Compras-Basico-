@@ -1,3 +1,4 @@
+//Segunda Modificacion
 const ContenedorCards = document.querySelector("#container-cards");
 const SeleccionarProductos = document.querySelector("#select-products");
 const ModalFruta = document.querySelector(".modal");
