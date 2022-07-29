@@ -25,7 +25,9 @@ function FiltrarFruta(event) {
     ? fruits.filter( fruit => fruit.price >= 2 && fruit.price <= 4)
     : event.target.value === 'Mayores a 4'
     ? fruits.filter( fruit => fruit.price > 4)
-    :event.target.value === ''?
+    :event.target.value === 'Todos'?
+    fruits.map( fruit =>{return fruit}):
+    event.target.value === ''?
     LimpiarCard():null;
     ContenedorCards.innerHTML = '';
     responseFilter.map( fruit => CrearCards(fruit));
@@ -52,8 +54,13 @@ function CrearProducto() {
     quantity: 1,
   };
   fruits.push(NuevaFruta);
+  
   Seleccionarlista();
+  actualizas();
   ModalFruta.classList.remove("Mostrar");
+}
+function actualizas(){
+  fruits.map( fruit => CrearCards(fruit));  
 }
 function cerrarModal() {
   ModalFruta.classList.remove("Mostrar");
@@ -78,6 +85,7 @@ function Seleccionarlista() {
     //  opcion.setAttribute("prueba",fruta.id);
     SeleccionarProductos.appendChild(opcion);
   });
+  actualizas();
 }
 function CrearCards(fruta) {
 //   ContenedorCards.innerHTML = "";
